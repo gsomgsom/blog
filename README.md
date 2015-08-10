@@ -1,2 +1,1 @@
-# blog
-My Little Peaceful Grove of Regret and Shame
+# My Little Peaceful Grove of Regret and Shame
