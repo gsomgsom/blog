@@ -1,6 +1,6 @@
 `2016-01-01 07:05`
 
-This post will explain how to make trails like the ones in [Downwell](store.steampowered.com/app/360740/) from scratch using [LÖVE](https://love2d.org/). There's another tutorial on this written by [Zack Bell](https://twitter.com/ZackBellGames) [here](http://zackbellgames.com/2015/10/26/gmtweekly-downwell-style-motion-trail/). If you don't know how to use LÖVE/Lua but have some programming knowledge then this tutorial might also serve as a learning exercise on LÖVE/Lua itself. You can find the code for all this [here](https://github.com/adonaac/blog/tree/master/code/downwell).
+This post will explain how to make trails like the ones in [Downwell](https//store.steampowered.com/app/360740/) from scratch using [LÖVE](https://love2d.org/). There's another tutorial on this written by [Zack Bell](https://twitter.com/ZackBellGames) [here](http://zackbellgames.com/2015/10/26/gmtweekly-downwell-style-motion-trail/). If you don't know how to use LÖVE/Lua but have some programming knowledge then this tutorial might also serve as a learning exercise on LÖVE/Lua itself. You can find the code for all this [here](https://github.com/adonaac/blog/tree/master/code/downwell).
 
 <p align="center">
     <img src="https://github.com/adonaac/blog/raw/master/images/dw-1.gif"/>
@@ -12,7 +12,7 @@ This post will explain how to make trails like the ones in [Downwell](store.stea
 
 Before starting with the actual effect we need to get some base code ready, basically just an organized way of creating and deleting entities as well as drawing them to the screen. Since LÖVE doesn't really come with this built-in we need to build it ourselves.
 
-The first thing to do is create a folder for our project and in it a `main.lua` with the following contents:
+The first thing to do is create a folder for our project and in it a `main.lua` file with the following contents:
 
 ```lua
 function love.load()
@@ -28,13 +28,13 @@ function love.draw()
 end
 ```
 
-When a LÖVE project is run, `love.load()` is run on startup once and then `love.update` and `love.draw` are run every frame. To run this basic LÖVE project you can check out the [Getting Started](https://love2d.org/wiki/Getting_Started) page. After you manage to run it you should see a black screen.
+When a LÖVE project is loaded, `love.load()` is called on startup once and then `love.update` and `love.draw` are called every frame. To run this basic LÖVE project you can check out the [Getting Started](https://love2d.org/wiki/Getting_Started) page. After you manage to run it you should see a black screen.
 
 <br>
 
 ## GameObject
 
-Now, we'll need some entities in our game and for that we'll use an OOP library called [classic](https://github.com/rxi/classic). Like the github page says, after downloading the library and placing the classic folder in the same folder as the `main.lua` file, you can require it by doing `Object = require 'classic/classic'`.
+Now, we'll need some entities in our game and for that we'll use an OOP library called [classic](https://github.com/rxi/classic). Like the github page says, after downloading the library and placing the classic folder in the same folder as the `main.lua` file, you can require it by doing:
 
 ```lua
 Object = require 'classic/classic'
@@ -83,7 +83,7 @@ function GameObject:new()
 return GameObject
 ```
 
-```
+```lua
 -- in main.lua
 Object = require 'classic/classic'
 GameObject = require 'GameObject'
@@ -121,7 +121,7 @@ Another thing from the code above is the usage of the `print` function. It's a u
 
 ## Object Creation and Deletion
 
-The trail effect is achieved by creating multiple trail instances and quickly deleting them (like after 0.2 seconds they were created), so because of that we need some logic object creation and deletion. Object creation was shown above, the only additional step we need is adding the object to a table that will hold all of them ([`table.insert`](https://wiki.garrysmod.com/page/table/insert)):
+The trail effect is achieved by creating multiple trail instances and quickly deleting them (like after 0.2 seconds they were created), so because of that we need some logic for object creation and deletion. Object creation was shown above, the only additional step we need is adding the object to a table that will hold all of them ([`table.insert`](https://wiki.garrysmod.com/page/table/insert)):
 
 ```lua
 function love.load()
@@ -177,7 +177,7 @@ function love.update(dt)
 end
 ```
 
-And so whenever a `GameObject` instances has its `dead` attribute set to `true`, it will automatically get removed from the `game_objects` list. One of the important things to note here is that we're going through the list backwards. This is because in Lua, whenever something is removed from a list it gets resorted so as to leave no `nil` spaces in it. This means that if object `1` and `2` need to be deleted, if we go with a normal forwards loop, object `1` will be deleted, the list will be resorted and now object `2` will be object `1`, but since we already went to the next iteration, we'll need get to delete the original object `2` (because it's in the first position). To prevent this from happening we go over the list backwards.
+And so whenever a `GameObject` instance has its `dead` attribute set to `true`, it will automatically get removed from the `game_objects` list. One of the important things to note here is that we're going through the list backwards. This is because in Lua, whenever something is removed from a list it gets resorted so as to leave no `nil` spaces in it. This means that if object `1` and `2` need to be deleted, if we go with a normal forwards loop, object `1` will be deleted, the list will be resorted and now object `2` will be object `1`, but since we already went to the next iteration, we'll not get to delete the original object `2` (because it's in the first position now). To prevent this from happening we go over the list backwards.
 
 To test if this works out we can bind the deletion of a single instance we created to a mouse click ([`love.mousepressed`](https://love2d.org/wiki/love.mousepressed)):
 
@@ -219,7 +219,7 @@ end
 
 Now, to scale this up to, say, `960x720` (scaling it up by 3) while maintaining the pixel size of `320x240`, we need to draw the whole screen to a [canvas](https://love2d.org/wiki/Canvas) and then scale that up by 3. In this way, we'll always be working as if everything were at the small native resolution, but at the last step it will be drawn way bigger ([`love.graphics.newCanvas`](https://love2d.org/wiki/love.graphics.newCanvas)):
 
-```
+```lua
 function love.load()
   ...
   main_canvas = love.graphics.newCanvas(320, 240)
@@ -241,7 +241,7 @@ end
 First we create a new canvas, `main_canvas`, with the native size and set its filter to `nearest` (so that it scales up with the nearest neighbor algorithm, essential for pixel art). Then, instead of just drawing the game objects directly to the screen, we set `main_canvas` with [`love.graphics.setCanvas`](https://love2d.org/wiki/love.graphics.setCanvas), clear the contents from this canvas from the last frame with [`love.graphics.clear`](https://love2d.org/wiki/love.graphics.clear), draw the game objects, and then draw the canvas scale up by 3 ([`love.graphics.draw`](https://love2d.org/wiki/love.graphics.draw)). This is what it looks like:
 
 <p align="center">
-    <img src="https://github.com/adonaac/blog/raw/master/images/dw-2.gif"/>
+    <img src="https://github.com/adonaac/blog/raw/master/images/dw-2.png"/>
 </p>
 
 Compared to what it looked like before the pixel art effect is there, so it seems to be working. You might wanna also make the window itself bigger (instead of 320x240), and you can do that by using [`love.window.setMode`](https://love2d.org/wiki/love.window.setMode):
@@ -302,7 +302,7 @@ And so in this example `game_object` will be deleted after the game has run for 
 
 ---
 
-As this is finally the very last thing we need to do before we can actually do trails, which is defining multiple object types. Each trail object (that will get deleted really fast) will need to be an instance of some class, but it can't be the `GameObject` class, since we want that class to have the behavior that follows the mouse and draws the circle. So now what we need to do is come up with a way of supporting multiple object types. There are multiple ways of doing this, but I'll go with the simple one:
+And this is finally the very last thing we need to do before we can actually do trails, which is defining multiple object types. Each trail object (that will get deleted really fast) will need to be an instance of some class, but it can't be the `GameObject` class, since we want that class to have the behavior that follows the mouse and draws the circle. So now what we need to do is come up with a way of supporting multiple object types. There are multiple ways of doing this, but I'll go with the simple one:
 
 ```lua
 function createGameObject(type, x, y, opts)
@@ -451,7 +451,7 @@ end
 
 There's totally some dumb stuff going on here, like for instance we're going over the list of objects twice now (even though we're not drawing twice), and that could totally be optimized. But really for an example this small this doesn't matter at all. What's important is that it works!
 
-So now that we've separated different things into different render targets we can move on with our effect. The way to erase lines from all the trails is to draw lines to the trail canvas using the `subtract` blend mode. What this blend mode does is literally just subtract the values of the thing you're drawing from what's already on the screen/canvas. So in this case what we want is to draw a bunch of white lines `(1, 1, 1, 1)` with `subtract` enabled to `trail_canvas` (after the trails have been drawn), in this way the places where those lines would appear will become `(0, 0, 0, 0)` (`[love.graphics.setBlendMode`](https://love2d.org/wiki/love.graphics.setBlendMode)):
+So now that we've separated different things into different render targets we can move on with our effect. The way to erase lines from all the trails is to draw lines to the trail canvas using the `subtract` blend mode. What this blend mode does is literally just subtract the values of the thing you're drawing from what's already on the screen/canvas. So in this case what we want is to draw a bunch of white lines `(1, 1, 1, 1)` with `subtract` enabled to `trail_canvas` (after the trails have been drawn), in this way the places where those lines would appear will become `(0, 0, 0, 0)` ([`love.graphics.setBlendMode`](https://love2d.org/wiki/love.graphics.setBlendMode)):
 
 ```lua
 function love.load()
@@ -488,7 +488,7 @@ And this is what that looks like:
 One important thing to do before drawing this is to set the line style to `'rough'` using [`love.graphics.setLineStyle`](https://love2d.org/wiki/love.graphics.setLineStyle), since the default is `'smooth'` and that doesn't work with the pixel art style generally. And if you didn't really understand what's going on here, here's what the lines by themselves would look like if they were drawn normally:
 
 <p align="center">
-    <img src="https://github.com/adonaac/blog/raw/master/images/dw-5.gif"/>
+    <img src="https://github.com/adonaac/blog/raw/master/images/dw-5.png"/>
 </p>
 
 So all we're doing is subtracting that from the trail canvas, and since the only places in the trail canvas where there are things to be subtracted from are the trails, we get the effect only there. Another thing to note is that the `subtract` blend mode idea would only work if you have a black background. For instance, I tried this effect in my game and this is what it looks like:
@@ -497,7 +497,9 @@ So all we're doing is subtracting that from the trail canvas, and since the only
     <img src="https://github.com/adonaac/blog/raw/master/images/dw-6.gif"/>
 </p>
 
-If I were to use the subtract blend mode here it just would look even worse than it does. So instead what I did was use `multiply`. Like the name indicates, it just multiplies the values instead of subtracting them. So the white lines `(1, 1, 1, 1)` won't change the output in any way, while the gaps `(0, 0, 0, 0)` will make whatever collides with them transparent. In this way you get the same effect, the only difference is that with subtract the white lines themselves result in transparency, while with multiple the gaps between them do.
+If I were to use the subtract blend mode here it just would look even worse than it does. So instead what I did was use `multiply`. Like the name indicates, it just multiplies the values instead of subtracting them. So the white lines `(1, 1, 1, 1)` won't change the output in any way, while the gaps `(0, 0, 0, 0)` will make whatever collides with them transparent. In this way you get the same effect, the only difference is that with subtract the white lines themselves result in transparency, while with multiply the gaps between them do.
+
+<br>
 
 ## Details
 
@@ -629,7 +631,7 @@ end
 
 Not really sure if it looks better or worse, looks like it's fine for slow moving situations but when its too fast it can get a bit chaotic (probably because I stop the object and then the angle changes abruptly midway).
 
-One problem with this way of doing things is that since all the lines are being rotated but they're being drawn at first to fit the screen, you'll get places where the lines simply don't exist anymore and the effect fails to happen, this causes the trails to look all white. To prevent this we can just draw lines way beyond the screen boundaries on all directions, such that with any rotation happening, lines will still be drawn anyway:
+One problem with this way of doing things is that since all the lines are being rotated but they're being drawn at first to fit the screen, you'll get places where the lines simply don't exist anymore and the effect fails to happen, which causes the trails to look all white. To prevent this we can just draw lines way beyond the screen boundaries on all directions, such that with any rotation happening  lines will still be drawn anyway:
 
 ```lua
   ...
@@ -668,6 +670,7 @@ end
 `Vector` was initialized in `main.lua` and it comes from `HUMP`. I'll omit that code because you should be able to do that by now. Anyway, here we calculate a value called `vmag`. This value is basically an indicator of how fast the object is moving in any direction. Since we already have the angle the magnitude of the velocity is all we really need. With that information we can do the following:
 
 ```lua
+-- in main.lua
 function map(old_value, old_min, old_max, new_min, new_max)
     local new_min = new_min or 0
     local new_max = new_max or 1
@@ -683,6 +686,7 @@ end
 ```
 
 ```lua
+-- in GameObject.lua
 function GameObject:update(dt)
   ...
   self.vmag = Vector(self.x - self.previous_x, self.y - self.previous_y):len()
@@ -705,9 +709,9 @@ And that looks like this:
     <img src="https://github.com/adonaac/blog/raw/master/images/dw-11.gif"/>
 </p>
 
-Let's go part by part. First the `map` function. This is a function that takes some value named `old_value`, two values named `old_min` and `old_max` representing the range that `old_value` can take, and two other values named `new_min` and `new_max`, representing the desired new range. With all this it returns a new value that corresponds to `old_value`, but if it were in `new_min`, `new_max` ranged. For instance, if we do `map(0.5, 0, 1, 0, 100)` we'll get `50` back. If we do `map(0.5, 0, 1, 200, -200)` we'll get `0` back. If we do `map(0.5, 0, 1, -200, 100)` we'll get `-50` back. And so on...
+Let's go part by part. First the `map` function. This is a function that takes some value named `old_value`, two values named `old_min` and `old_max` representing the range that `old_value` can take, and two other values named `new_min` and `new_max`, representing the desired new range. With all this it returns a new value that corresponds to `old_value`, but if it were in the `new_min`, `new_max` range. For instance, if we do `map(0.5, 0, 1, 0, 100)` we'll get `50` back. If we do `map(0.5, 0, 1, 200, -200)` we'll get `0` back. If we do `map(0.5, 0, 1, -200, 100)` we'll get `-50` back. And so on...
 
-We use this function to calculate the variables `self.xm` and `self.ym`. These variables will be used as multiplication factors to change the size of the ellipse we're drawing. One thing to keep in mind is that when drawing the ellipse we're first rotating everything by `self.angle`, this means that we should always consider what we want to happen when drawing as if we were at angle `0` (to the right), because all other angles will just happen automatically because of how we're rotating.
+We use this function to calculate the variables `self.xm` and `self.ym`. These variables will be used as multiplication factors to change the size of the ellipse we're drawing. One thing to keep in mind is that when drawing the ellipse we're first rotating everything by `self.angle`, this means that we should always consider what we want to happen when drawing as if we were at angle `0` (to the right), because all other angles will just happen automatically from that.
 
 Practically, this means that we should consider the changes in shape of our ellipse from a horizontal perspective. So when the game object is going really fast we want the ellipse to stretch horizontally and shrink vertically, which means that the values we find for `self.xm` and `self.ym` have to reflect that. As you can see, for `self.xm`, when `self.vmag` is `0` we get `1` back, and when it's `20` we get `2`, meaning, when `self.vmag` is `20` we double the size of the ellipse horizontally, bringing it up to `30`. For `self.vmag` values greater than that we increase it even more. Similar logic applies to `self.ym` and how it shrinks.
 
@@ -719,7 +723,9 @@ Finally, we can also apply this to the `Trail` objects:
 -- in GameObject.lua
 function GameObject:new(type, x, y, opts)
     ...
-    timer.every(0.01, function() createGameObject('Trail', self.x, self.y, {r = 20, xm = self.xm, ym = self.ym, angle = self.angle}) end)
+    timer.every(0.01, function() createGameObject('Trail', self.x, self.y, {r = 20, 
+        xm = self.xm, ym = self.ym, angle = self.angle})
+    end)
 end
 ```
 
@@ -727,7 +733,8 @@ end
 -- in Trail.lua
 function Trail:draw()
     pushRotate(self.x, self.y, self.angle)
-    love.graphics.ellipse('fill', self.x, self.y, self.xm*(self.r + randomp(-2.5, 2.5)), self.ym*(self.r + randomp(-2.5, 2.5)))
+    love.graphics.ellipse('fill', self.x, self.y, self.xm*(self.r + randomp(-2.5, 2.5)), 
+        self.ym*(self.r + randomp(-2.5, 2.5)))
     love.graphics.pop()
 end
 ```
