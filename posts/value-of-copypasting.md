@@ -143,6 +143,12 @@ function Y()
   B()
   C()
 end
+
+function Z()
+  E()
+  B()
+  C()
+end
 ```
 
 Or changing `A` to suit `Z`'s needs:
@@ -152,7 +158,7 @@ Or changing `A` to suit `Z`'s needs:
 function A(y_flag, z_flag)
   block 1
 
-  if d_flag
+  if y_flag
     block 9
   else
     block 2
@@ -162,7 +168,7 @@ function A(y_flag, z_flag)
   else
     block 3
 
-  if d_flag
+  if y_flag
     block 10
 end
 
@@ -173,7 +179,7 @@ function X()
 end
 
 function Y()
-  A(d_flag = true)
+  A(y_flag = true)
   B()
   C()
 end
@@ -185,7 +191,7 @@ function Z()
 end
 ```
 
-Either way we choose, we lose. This is because this exercise will keep going on and on forever as we add new functionality to our codebase, and as the codebase grows, whatever we did to minimize code duplication will make it fundamentally more complex. The solution where you add a new function adds a new node to your code, and with a new node now you have more things to think about and worry about. The solution where you add flags and settings adds logical complexity to the flow of the affected function, which makes the code a lot harder to reason about. Any other solution out of this problem will do either of those things and complexity will grow.
+Either way we choose, we lose. This is because this exercise will keep going on and on forever as we add new functionality to our codebase, and as the codebase grows, whatever we did to minimize code duplication will make it fundamentally more complex. The solution where you add a new function adds a new node to your code, and with a new node now you have more dependencies to think about and worry about. The solution where you add flags and settings adds logical complexity to the flow of the affected function, which makes the code a lot harder to reason about. Any other solution out of this problem will do either of those things and complexity will grow.
 
 The point here is not that code reuse is bad, but that there are ongoing costs to making things reusable. The cost here is that at each point you have to add a new functionality, you'll have to think about which solution to choose to minimize duplication and which previous components/functions that exist in the codebase that you should look at to change and/or use. The process of building reusable code is one where you have to think about how to integrate new functionality against existing code instead of just adding new functionality. This is a huge mental resource drain that most people forget to take into account.
 
@@ -256,7 +262,7 @@ end
 
 Isn't this process much much simpler? This takes no mental effort at all. You literally just copypaste and change what needs to be changed. Yes, there are very obvious problems with copypasting. If we want to change how `B` works for instance now we have 3 places where we have to make that change. And that's a bad thing! But my point is that people should know when the costs of doing this are higher than the ongoing costs of making things reusable and when they aren't.
 
-The upfront costs of copypasting are usually a lot lower than the upfront costs of making things reusable. This is a fact. The long term costs of copypasting are usually a lot higher than the long term costs of making things reusable. This is another fact. But people often forget about the first fact and that they can use both of them to make reasonable and responsible trades in their codebase. The lower upfront costs of copypasting can be extremely useful in a huge number of situations, but a lot of people default to reuse always, and that's a huge waste of mental resources.
+The upfront costs of copypasting are usually a lot lower than the upfront costs of making things reusable. This is a fact. The long term costs of copypasting are usually a lot higher than the long term costs of making things reusable. This is another fact. But people often forget about the first fact and that they can use both of them to make reasonable and responsible trades in their codebase. The lower upfront costs of copypasting can be extremely useful in a huge number of situations, but a lot of people default to reuse always, and that's a huge waste of mental resources and a huge unnecessary increase in complexity.
 
 <br>
 
@@ -296,6 +302,6 @@ At the same time, when you do need to do something dumb like changing the genera
 
 ## END
 
-Hopefully we've all learned something from this. One thing I noticed is that often times I see indie developers with amazing games out there, but by all normal standards if you were to look at their code they would be considered bad coders who just don't know any good practices.
+Hopefully we've all learned something from this. One thing I noticed is that often times I see indie developers with amazing games, but by all normal standards if you were to look at their code they would be considered bad coders who just don't know any good practices.
 
-I think intuitively people realize that doing things like what I outlined in this article is a good idea that works, and so you get lots of "dumb" code that works. Obviously, if you're able to analyze these tradeoffs properly you can make informed decisions instead of just doing the dumb thing because you didn't know any better.
+I think intuitively people realize that doing things like what I outlined in this article is a good idea, and so you get lots of "dumb" code that works. However, you don't need to go that far. If you're able to analyze these tradeoffs properly you can make informed decisions instead of just doing the dumb thing because you didn't know any better, and this will result in less costs for you even though it looks like it costs a lot.
