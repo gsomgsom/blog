@@ -1,6 +1,6 @@
 `2016-01-01 07:05`
 
-This post will explain how to make trails like the ones in [Downwell](https//store.steampowered.com/app/360740/) from scratch using [LÖVE](https://love2d.org/). There's another tutorial on this written by [Zack Bell](https://twitter.com/ZackBellGames) [here](http://zackbellgames.com/2015/10/26/gmtweekly-downwell-style-motion-trail/). If you don't know how to use LÖVE/Lua but have some programming knowledge then this tutorial might also serve as a learning exercise on LÖVE/Lua itself. You can find the code for all this [here](https://github.com/adonaac/blog/tree/master/code/downwell).
+This post will explain how to make trails like the ones in [Downwell](https://store.steampowered.com/app/360740/) from scratch using [LÖVE](https://love2d.org/). There's another tutorial on this written by [Zack Bell](https://twitter.com/ZackBellGames) [here](http://zackbellgames.com/2015/10/26/gmtweekly-downwell-style-motion-trail/). If you don't know how to use LÖVE/Lua but have some programming knowledge then this tutorial might also serve as a learning exercise on LÖVE/Lua itself. You can find the code for all this [here](https://github.com/adonaac/blog/tree/master/code/downwell).
 
 <p align="center">
     <img src="https://github.com/adonaac/blog/raw/master/images/dw-1.gif"/>

@@ -1,6 +1,6 @@
 ## My Little Peaceful Grove of Regret and Shame
 
-#### 2016-01-01 [Programming 2D Visual Effects - Downwell Trails](https://github.com/adonaac/blog/issues/9)
+#### 2016-01-01 [Downwell Trails](https://github.com/adonaac/blog/issues/9)
 #### 2015-12-25 [Replay System and Lua's Flexibility](https://github.com/adonaac/blog/issues/8)
 #### 2015-08-30 [Procedural Dungeon Generation #2](https://github.com/adonaac/blog/issues/7)
 #### 2015-08-21 [Automatic Game Updates with LÖVE](https://github.com/adonaac/blog/issues/6)
