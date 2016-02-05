@@ -20,6 +20,12 @@ function Trail:draw()
     love.graphics.ellipse('fill', self.x, self.y, self.xm*(self.r + randomp(-2.5, 2.5)), self.ym*(self.r + randomp(-2.5, 2.5)))
     love.graphics.pop()
     love.graphics.setColor(255, 255, 255)
+
+    love.graphics.setBlendMode('subtract')
+    for i = -80, 80, 2 do
+        love.graphics.line(self.x + i, self.y - 80, self.x + i, self.y + 80)
+    end
+    love.graphics.setBlendMode('alpha')
 end
 
 return Trail

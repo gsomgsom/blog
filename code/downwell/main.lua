@@ -50,6 +50,7 @@ function love.draw()
         end
     end
 
+    --[[
     pushRotate(160, 120, randomp(-math.pi/12, math.pi/12))
     love.graphics.setBlendMode('subtract')
     for i = -360, 720, 2 do
@@ -60,6 +61,7 @@ function love.draw()
     end
     love.graphics.setBlendMode('alpha')
     love.graphics.pop()
+    ]]--
     love.graphics.setCanvas()
 
     love.graphics.setCanvas(game_object_canvas)
