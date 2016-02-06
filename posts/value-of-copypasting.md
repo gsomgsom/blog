@@ -304,4 +304,10 @@ At the same time, when you do need to do something dumb like changing the genera
 
 Hopefully we've all learned something from this. One thing I noticed is that often times I see indie developers with amazing games, but by all normal standards if you were to look at their code they would be considered bad coders who just don't know any good practices.
 
-I think intuitively people realize that doing things like what I outlined in this article is a good idea, and so you get lots of "dumb" code that works. However, you don't need to go that far. If you're able to analyze these tradeoffs properly you can make informed decisions instead of just doing the dumb thing because you didn't know any better, and this will result in less costs for you even though it looks like it costs a lot.
+I think intuitively people realize that doing things like what I outlined in this article is a good idea, and so you get lots of "dumb" code that works. It's important to understand that if you're able to analyze these tradeoffs properly you can make informed decisions about how to engage in those dumb activities while decreasing the overall costs of making whatever you want to make. 
+
+Also don't let other people bully you into "proper" code and tell you your code is dumb. Tell them they're dumb instead and that their code is even dumber and that they should be ashamed of trying to shame you. And tell them Undertale has dumb code so it's okay to have dumb code too. Look:
+
+<p align="center">
+    <img src="http://i.imgur.com/yfXIjC7.png"/>
+</p>
