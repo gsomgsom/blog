@@ -2,7 +2,7 @@
 
 This tutorial series will cover the creation of a complete game with [Lua](https://www.lua.org/) and [LÖVE](https://love2d.org/). It's aimed at peogrammers who have some experience but are just starting out with game development, or game developers who already have some experience with other languages or frameworks but want to figure out Lua or LÖVE better.
 
-The game that will be created is a mix of [Bit Blaster XL](http://store.steampowered.com/app/433950/) and [Path of Exile's Passive Skill Tree](https://www.pathofexile.com/passive-skill-tree). It's simple enough that it can be covered in a number of articles without extending for too long, but with enough content that a beginner would feel uncomfortable with the code and end up giving up before finishing.
+The game that will be created is called 「ＢＹＴＥＰＡＴＨ」 and it's a mix of [Bit Blaster XL](http://store.steampowered.com/app/433950/) and [Path of Exile's Passive Skill Tree](https://www.pathofexile.com/passive-skill-tree). It's simple enough that it can be covered in a number of articles without extending for too long, but with enough content that a beginner would feel uncomfortable with the code and end up giving up before finishing.
 
 <p align="center">
     <img src="https://github.com/adonaac/blog/raw/master/images/bytepath-gameplay.gif"/>
@@ -68,9 +68,7 @@ function love.draw()
 end
 ```
 
-`love.graphics.newImage` loads the image texture to the `image` variable and then every frame it's drawn at position 0, 0.
-
-To see that `love.draw` actually draws the image on every frame, try this:
+`love.graphics.newImage` loads the image texture to the `image` variable and then every frame it's drawn at position 0, 0. To see that `love.draw` actually draws the image on every frame, try this:
 
 ```lua
 love.graphics.draw(image, love.math.random(0, 800), love.math.random(0, 600))
