@@ -1,5 +1,6 @@
 ## My Little Peaceful Grove of Regret and Shame
 
+#### 2017-04-22 [BYTEPATH #1 - Libraries](https://github.com/adonaac/blog/issues/12)
 #### 2017-04-21 [BYTEPATH #1 - Game Loop](https://github.com/adonaac/blog/issues/11)
 #### 2016-02-05 [The Value of Copypasting](https://github.com/adonaac/blog/issues/10)
 #### 2016-01-01 [Downwell Trails](https://github.com/adonaac/blog/issues/9)
