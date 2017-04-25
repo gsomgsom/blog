@@ -1,5 +1,6 @@
 ## My Little Peaceful Grove of Regret and Shame
 
+#### 2017-04-25 [BYTEPATH #4 - Exercises](https://github.com/adonaac/blog/issues/14)
 #### 2017-04-23 [BYTEPATH #3 - Rooms and Areas](https://github.com/adonaac/blog/issues/13)
 #### 2017-04-22 [BYTEPATH #2 - Libraries](https://github.com/adonaac/blog/issues/12)
 #### 2017-04-21 [BYTEPATH #1 - Game Loop](https://github.com/adonaac/blog/issues/11)
