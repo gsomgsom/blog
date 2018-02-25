@@ -1,3 +1,4 @@
+#### 2018-02-24 [Programming lessons learned from making my first game and why I'm writing my own engine in 2018](https://github.com/SSYGEN/blog/issues/31)
 #### 2018-02-14 [BYTEPATH #0 - Introduction](https://github.com/adonaac/blog/issues/30)
 #### 2018-02-14 [BYTEPATH #15 - Final](https://github.com/adonaac/blog/issues/29)
 #### 2018-02-14 [BYTEPATH #14 - Console](https://github.com/adonaac/blog/issues/28)
