@@ -1,3 +1,4 @@
+#### 2018-03-26 [AIKA #1 - Setup, SDL, SDL_gpu](https://github.com/SSYGEN/blog/issues/34)
 #### 2018-02-24 [Programming lessons learned from making my first game and why I'm writing my own engine in 2018](https://github.com/SSYGEN/blog/issues/31)
 #### 2018-02-14 [BYTEPATH #0 - Introduction](https://github.com/adonaac/blog/issues/30)
 #### 2018-02-14 [BYTEPATH #15 - Final](https://github.com/adonaac/blog/issues/29)
