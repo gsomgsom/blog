@@ -44,35 +44,35 @@
 
 ## Оглавление
 
-### [1. Игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/issues/15)
+### [1. Игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-1-game-loop.md)
 
-### [2. Библиотеки](https://github.com/gsomgsom/lua_gamedev_blog/issues/16)
+### [2. Библиотеки](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-2-libraries.md)
 
-### [3. Комнаты и области](https://github.com/gsomgsom/lua_gamedev_blog/issues/17)
+### [3. Комнаты и области](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-3-rooms-and-areas.md)
 
-### [4. Упражнения](https://github.com/gsomgsom/lua_gamedev_blog/issues/18)
+### [4. Упражнения](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-4-exercises.md)
 
-### [5. Основы игры](https://github.com/gsomgsom/lua_gamedev_blog/issues/19)
+### [5. Основы игры](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-5-game-basics.md)
 
-### [6. Основы класса Player](https://github.com/gsomgsom/lua_gamedev_blog/issues/20)
+### [6. Основы класса Player](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-6-player-basics.md)
 
-### [7. Параметры и атаки игрока](https://github.com/gsomgsom/lua_gamedev_blog/issues/21)
+### [7. Параметры и атаки игрока](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-7-player-stats-and-attacks.md)
 
-### [8. Враги](https://github.com/gsomgsom/lua_gamedev_blog/issues/22)
+### [8. Враги](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-8-enemies.md)
 
-### [9. Режиссёр и игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/issues/23)
+### [9. Режиссёр и игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-9-director-and-gameplay-loop.md)
 
-### [10. Практики написания кода](https://github.com/gsomgsom/lua_gamedev_blog/issues/24)
+### [10. Практики написания кода](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-10-coding-practices.md)
 
-### [11. Пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/issues/25)
+### [11. Пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-11-passives.md)
 
-### [12. Другие пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/issues/26)
+### [12. Другие пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-12-more-passives.md)
 
-### [13. Skill Tree](https://github.com/gsomgsom/lua_gamedev_blog/issues/27)
+### [13. Skill Tree](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-13-skill-tree.md)
 
-### [14. Console](https://github.com/gsomgsom/lua_gamedev_blog/issues/28)
+### [14. Console](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-14-console.md)
 
-### [15. Final](https://github.comgsomgsom/lua_gamedev_blog/issues/29)
+### [15. Final](https://github.com/gsomgsom/lua_gamedev_blog/blob/master/posts/bytepath-15-final.md)
 
 <br>
 
