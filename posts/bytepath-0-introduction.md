@@ -6,7 +6,7 @@
 
 <p align="center">
 
-<img src="https://github.com/SSYGEN/blog/raw/master/images/bytepath-shielder.gif">
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-shielder.gif">
 
 </p>
 
@@ -16,7 +16,7 @@
 
 <p align="center">
 
-<img src="https://github.com/SSYGEN/blog/raw/master/images/bytepath-skill-tree.gif">
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-skill-tree.gif">
 
 </p>
 
@@ -36,7 +36,7 @@
 
 <p align="center">
 
-<img src="https://github.com/SSYGEN/blog/raw/master/images/bytepath-lightning.gif">
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-lightning.gif">
 
 </p>
 
@@ -44,35 +44,35 @@
 
 ## Оглавление
 
-### [1. Игровой цикл](https://github.com/SSYGEN/blog/issues/15)
+### [1. Игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/issues/15)
 
-### [2. Библиотеки](https://github.com/SSYGEN/blog/issues/16)
+### [2. Библиотеки](https://github.com/gsomgsom/lua_gamedev_blog/issues/16)
 
-### [3. Комнаты и области](https://github.com/SSYGEN/blog/issues/17)
+### [3. Комнаты и области](https://github.com/gsomgsom/lua_gamedev_blog/issues/17)
 
-### [4. Упражнения](https://github.com/SSYGEN/blog/issues/18)
+### [4. Упражнения](https://github.com/gsomgsom/lua_gamedev_blog/issues/18)
 
-### [5. Основы игры](https://github.com/SSYGEN/blog/issues/19)
+### [5. Основы игры](https://github.com/gsomgsom/lua_gamedev_blog/issues/19)
 
-### [6. Основы класса Player](https://github.com/SSYGEN/blog/issues/20)
+### [6. Основы класса Player](https://github.com/gsomgsom/lua_gamedev_blog/issues/20)
 
-### [7. Параметры и атаки игрока](https://github.com/SSYGEN/blog/issues/21)
+### [7. Параметры и атаки игрока](https://github.com/gsomgsom/lua_gamedev_blog/issues/21)
 
-### [8. Враги](https://github.com/SSYGEN/blog/issues/22)
+### [8. Враги](https://github.com/gsomgsom/lua_gamedev_blog/issues/22)
 
-### [9. Режиссёр и игровой цикл](https://github.com/SSYGEN/blog/issues/23)
+### [9. Режиссёр и игровой цикл](https://github.com/gsomgsom/lua_gamedev_blog/issues/23)
 
-### [10. Практики написания кода](https://github.com/SSYGEN/blog/issues/24)
+### [10. Практики написания кода](https://github.com/gsomgsom/lua_gamedev_blog/issues/24)
 
-### [11. Пассивные навыки](https://github.com/SSYGEN/blog/issues/25)
+### [11. Пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/issues/25)
 
-### [12. Другие пассивные навыки](https://github.com/SSYGEN/blog/issues/26)
+### [12. Другие пассивные навыки](https://github.com/gsomgsom/lua_gamedev_blog/issues/26)
 
-### [13. Skill Tree](https://github.com/SSYGEN/blog/issues/27)
+### [13. Skill Tree](https://github.com/gsomgsom/lua_gamedev_blog/issues/27)
 
-### [14. Console](https://github.com/SSYGEN/blog/issues/28)
+### [14. Console](https://github.com/gsomgsom/lua_gamedev_blog/issues/28)
 
-### [15. Final](https://github.com/SSYGEN/blog/issues/29)
+### [15. Final](https://github.comgsomgsom/lua_gamedev_blog/issues/29)
 
 <br>
 
