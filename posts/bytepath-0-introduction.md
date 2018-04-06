@@ -1,8 +1,8 @@
-## Introduction
+## Введение
 
-This tutorial series will cover the creation of a complete game with [Lua](https://www.lua.org/) and [LÖVE](https://love2d.org/). It's aimed at programmers who have some experience but are just starting out with game development, or game developers who already have some experience with other languages or frameworks but want to figure out Lua or LÖVE better.
+В этой серии туториалов мы рассмотрим создание завершённой игры с помощью [Lua](https://www.lua.org/) и [LÖVE](https://love2d.org/). Туториал предназначен для программистов, имеющих некоторый опыт, но только начинающих осваивать разработку игр, или для разработчиков игр, уже имевших опыт работы с другими языками или фреймворками, но желающими лучше узнать Lua или LÖVE.
 
-The game that will be created is a mix of [Bit Blaster XL](http://store.steampowered.com/app/433950/) and [Path of Exile's Passive Skill Tree](https://www.pathofexile.com/passive-skill-tree). It's simple enough that it can be covered in a number of articles without extending for too long, but with enough content that a beginner would feel uncomfortable with the code and end up giving up before finishing. 
+Создаваемая нами игра будет сочетанием [Bit Blaster XL](http://store.steampowered.com/app/433950/) и [дерева пассивных навыков Path of Exile](https://www.pathofexile.com/passive-skill-tree). Она достаточно проста, чтобы можно было рассмотреть её в нескольких статьях, не очень больших по объёму, но содержащих слишком большой объём знаний для новичка.
 
 <p align="center">
 
@@ -10,9 +10,9 @@ The game that will be created is a mix of [Bit Blaster XL](http://store.steampow
 
 </p>
 
-It's also at a level of complexity that most game development tutorials don't cover. Most of the problems beginners have when starting out with game development have to do with scope. The usual advice is to start small and work your way up, and while that might be a good idea, if the types of projects you're interested in cannot be made any smaller then there are very few resources out there that attempt to guide you through the problems that come up.
+Кроме того, туториал имеет уровень сложности, не раскрываемый в большинстве туториалов по созданию игр. Большинство проблем, возникающих у новичков в разработке игр, связано с масштабом проекта. Обычно советуют начинать с малого и постепенно расширять объём. Хотя это и неплохая идея, но если вас интересуют такие проекты, которые никак нельзя сделать меньше, то в Интернете довольно мало ресурсов, способных вам помочь в решении встречаемых задач.
 
-In my case, I've always been interested in making games with lots and lots of items/passives/skills and so when I was starting out it was really hard to figure out a good way to structure my code so that I wouldn't get lost. Hopefully these tutorials can help someone with that.
+Что касается меня, то я всегда интересовался созданием игр со множеством предметов/пассивных возможностей/навыков, поэтому когда я приступал к работе, мне было сложно найти хороший способ структурирования кода, чтобы не запутаться в нём. Надеюсь, моя серия туториалов поможет кому-нибудь в этом.
 
 <p align="center">
 
@@ -22,17 +22,17 @@ In my case, I've always been interested in making games with lots and lots of it
 
 <br>
 
-## Requirements
+## Требования
 
-Before you start there are some programming knowledge requirements:
+Прежде чем приступить, я перечислю некоторые из знаний, необходимых для освоения этого туториала:
 
-* The basics of programming, like variables, loops, conditionals, basic data structures and so on;
+* Основы программирования: переменные, циклы, условные операторы, основные структуры данных и т.д.;
 
-* The basics of OOP, like knowing what classes, instances, attributes and methods are;
+* Основы ООП, например, понимание классов, экземпляров, атрибутов и методов;
 
-* And the very basics of Lua, [this quick tutorial](https://learnxinyminutes.com/docs/lua/) should be good enough.
+* И самые основы Lua; [этого краткого туториала](https://learnxinyminutes.com/docs/lua/) должно быть достаточно.
 
-Essentially this is not for people who are just getting started with programming in general. Also, this tutorial series will have exercises. If you've ever been in the situation where you finish a tutorial and you don't know what to do next it's probably because it had no exercises, so if you don't want that to happen here then I recommend at least trying to do them.
+По сути, этот туториал не предназначен для людей, делающих первые шаги в программировании. Кроме того, здесь я буду давать упражнения. Если у вас когда-нибудь были ситуации, когда вы заканчивали туториал и не знали, куда двигаться дальше, то, возможно, так происходило потому, что у вас не было упражнений. Если вы не хотите, чтобы такое повторялось, то рекомендую хотя бы попробовать их сделать.
 
 <p align="center">
 
@@ -42,31 +42,31 @@ Essentially this is not for people who are just getting started with programming
 
 <br>
 
-## Contents
+## Оглавление
 
-### [1. Game Loop](https://github.com/SSYGEN/blog/issues/15)
+### [1. Игровой цикл](https://github.com/SSYGEN/blog/issues/15)
 
-### [2. Libraries](https://github.com/SSYGEN/blog/issues/16)
+### [2. Библиотеки](https://github.com/SSYGEN/blog/issues/16)
 
-### [3. Rooms and Areas](https://github.com/SSYGEN/blog/issues/17)
+### [3. Комнаты и области](https://github.com/SSYGEN/blog/issues/17)
 
-### [4. Exercises](https://github.com/SSYGEN/blog/issues/18)
+### [4. Упражнения](https://github.com/SSYGEN/blog/issues/18)
 
-### [5. Game Basics](https://github.com/SSYGEN/blog/issues/19)
+### [5. Основы игры](https://github.com/SSYGEN/blog/issues/19)
 
-### [6. Player Basics](https://github.com/SSYGEN/blog/issues/20)
+### [6. Основы класса Player](https://github.com/SSYGEN/blog/issues/20)
 
-### [7. Player Stats and Attacks](https://github.com/SSYGEN/blog/issues/21)
+### [7. Параметры и атаки игрока](https://github.com/SSYGEN/blog/issues/21)
 
-### [8. Enemies](https://github.com/SSYGEN/blog/issues/22)
+### [8. Враги](https://github.com/SSYGEN/blog/issues/22)
 
-### [9. Director and Gameplay Loop](https://github.com/SSYGEN/blog/issues/23)
+### [9. Режиссёр и игровой цикл](https://github.com/SSYGEN/blog/issues/23)
 
-### [10. Coding Practices](https://github.com/SSYGEN/blog/issues/24)
+### [10. Практики написания кода](https://github.com/SSYGEN/blog/issues/24)
 
-### [11. Passives](https://github.com/SSYGEN/blog/issues/25)
+### [11. Пассивные навыки](https://github.com/SSYGEN/blog/issues/25)
 
-### [12. More Passives](https://github.com/SSYGEN/blog/issues/26)
+### [12. Другие пассивные навыки](https://github.com/SSYGEN/blog/issues/26)
 
 ### [13. Skill Tree](https://github.com/SSYGEN/blog/issues/27)
 
@@ -78,9 +78,9 @@ Essentially this is not for people who are just getting started with programming
 
 ---
 
-If you liked these tutorials and want to support the writing of more like these in the future:
+Если вам понравится эта серия туториалов, то вы можете простимулировать меня к написанию чего-то подобного в будущем:
 
-* ### [BYTEPATH on Steam](http://store.steampowered.com/app/760330/BYTEPATH/)
-* ### [BYTEPATH-tutorial on itch.io](https://ssygen.itch.io/bytepath-tutorial)
+* ### [Игра BYTEPATH в Steam](http://store.steampowered.com/app/760330/BYTEPATH/)
+* ### [Туториал по BYTEPATH на itch.io](https://ssygen.itch.io/bytepath-tutorial)
 
-Buying the tutorial on itch.io gives you access to the game's full source code, answers to exercises from articles 1 through 9, the code separated by articles (what the code should look like at the end of each article) and a Steam key to the game.
+Купив туториал на itch.io, вы получите доступ к полному исходному коду игры, к ответам на упражения из частей 1-9, к коду, разбитому по частям туториала (код будет выглядеть так, как должен выглядеть в конце каждой части) и к ключу игры в Steam.
