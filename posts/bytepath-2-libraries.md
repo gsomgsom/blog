@@ -1,23 +1,23 @@
-## Introduction
+## Введение
 
-In this article we'll cover a few Lua/LÖVE libraries that are necessary for the project and we'll also explore some ideas unique to Lua that you should start to get comfortable with. There will be a total of 4 libraries used by the end of it, and part of the goal is to also get you used to the idea of downloading libraries built by other people, reading through the documentation of those and figuring out how they work and how you can use them in your game. Lua and LÖVE don't come with lots of features by themselves, so downloading code written by other people and using it is a very common and necessary thing to do.
+В этой части мы рассмотрим некоторые из библиотек Lua/LÖVE, которые необходимы для проекта, а также изучим являющиеся уникальными для Lua принципы, которые вам нужно начать осваивать. К концу этой части мы освоим четыре библиотеки. Одна из целей этой части — привыкание к идее загрузки библиотек, собранных другими людьми, к чтению их документации, изучению их работы и возможностей использования в своём проекте. Сами по себе Lua и LÖVE не обладают широкими возможностями, поэтому загрузка и использование кода, написанного другими людьми — стандартная и необходимая практика.
 
 <br>
 
-## Object Orientation
+## Ориентация объектов
 
-The first thing I'll cover here is object orientation. There are many many different ways to get object orientation working with Lua, but I'll just use a library. The OOP library I like the most is [rxi/classic](https://github.com/rxi/classic) because of how small and effective it is. To install it just download it and drop the `classic` folder inside the project folder. Generally I create a `libraries` folder and drop all libraries there.
+Первое, что я здесь рассмотрю — это ориентация объектов. Существует очень много способов реализации ориентации объектов в Lua, но мы просто воспользуемся библиотекой. Больше всего мне нравится ООП-библиотека [rxi/classic](https://github.com/rxi/classic) из-за её малого объёма и эффективности. Для её установки достаточно просто скачать её и перетащить папку classic внутрь папки проекта. Обычно я создаю папку libraries и скидываю все библиотеки туда.
 
-Once that's done you can import the library to the game at the top of the `main.lua` file by doing:
+Закончив с этим, мы можем импортировать библиотеку в игру в верхней части файла `main.lua` сделав следующее:
 
 ```lua
 Object = require 'libraries/classic/classic'
 ```
 
-As the github page states, you can do all the normal OOP stuff with this library and it should work fine. When creating a new class I usually do it in a separate file and place that file inside an `objects` folder. So, for instance, creating a `Test` class and instantiating it once would look like this:
+Как написано на странице github, с этой библиотекой можно выполнять все обычные ООП-действия, и они должны нормально работать. При создании нового класса я обычно делаю это в отдельном файле и помещаю этот файл в папку `objects`. Тогда, например, создание класса `Test` и одного его экземпляра будет выглядеть так:
 
 ```lua
--- in objects/Test.lua
+-- В файле objects/Test.lua
 Test = Object:extend()
 
 function Test:new()
@@ -34,7 +34,7 @@ end
 ```
 
 ```lua
--- in main.lua
+-- В файле main.lua
 Object = require 'libraries/classic/classic'
 require 'objects/Test'
 
@@ -43,25 +43,25 @@ function love.load()
 end
 ```
 
-So when `require 'objects/Test'` is called in `main.lua`, everything that is defined in the `Test.lua` file happens, which means that the `Test` global variable now contains the definition for the Test class. For this game, every class definition will be done like this, which means that class names must be unique since they are bound to a global variable. If you don't want to do things like this you can make the following changes:
+То есть при вызове `require 'objects/Test'` в `main.lua` выполняется всё то, что определено в файле `Test.lua`, а значит глобальная переменная `Test` теперь содержит определение класса Test. В нашей игре каждое определение класса будет выполняться таким образом, то есть названия классов должны быть уникальными, так как они привязываются к глобальной переменной. Если вы не хотите делать так, то можете внести следующие изменения:
 
 ```lua
--- in objects/Test.lua
+-- В файле objects/Test.lua
 local Test = Object:extend()
 ...
 return Test
 ```
 
 ```lua
--- in main.lua
+-- В файле main.lua
 Test = require 'objects/Test'
 ```
 
-By defining the `Test` variable as local in `Test.lua` it won't be bound to a global variable, which means you can bind it to whatever name you want when requiring it in `main.lua`. At the end of the `Test.lua` script the local variable is returned, and so in `main.lua` when `Test = require 'objects/Test'` is declared, the `Test` class definition is being assigned to the global variable `Test`.
+Если мы сделаем переменную `Test` локальной в `Test.lua`, то она не будет привязана к глобальной переменной, то есть можно будет привязать её к любому имени, когда она потребуется в `main.lua`. В конце скрипта `Test.lua` возвращается локальная переменная, а поэтому в `main.lua` при объявлении `Test = require 'objects/Test'` определение класса Test присваивается глобальной переменной `Test`.
 
-Sometimes, like when writing libraries for other people, this is a better way of doing things so you don't pollute their global state with your library's variables. This is what classic does as well, which is why you have to initialize it by assigning it to the `Object` variable. One good result of this is that since we're assigning a library to a variable, if you wanted to you could have named `Object` as `Class` instead, and then your class definitions would look like `Test = Class:extend()`.
+Иногда, например, при написании библиотек для других людей, так делать лучше, чтобы не загрязнять их глобальное состояние переменными своей библиотеки. Библиотека classic тоже поступает так, именно поэтому мы должны инициализировать её, присваивая переменной `Object`. Одно из хороших последствий этого заключается в том, что при присвоении библиотеки переменной, если мы захотим, то можем дать `Object` имя `Class`, и тогда наши определения классов будут выглядеть как `Test = Class:extend()`.
 
-One last thing that I do is to automate the require process for all classes. To add a class to the environment you need to type `require 'objects/ClassName'`. The problem with this is that there will be lots of classes and typing it for every class can be tiresome. So something like this can be done to automate that process:
+Последнее, что я делаю — автоматизирую процесс require для всех классов. Для добавления класса в среду нужно ввести `require 'objects/ClassName'`. Проблема здесь в том, что может существовать множество классов и ввод этой строки для каждого класса может быть утомительным. Так что для автоматизации этого процесса можно сделать нечто подобное:
 
 ```lua
 function love.load()
@@ -82,15 +82,15 @@ function recursiveEnumerate(folder, file_list)
 end
 ```
 
-So let's break this down. The `recursiveEnumerate` function recursively enumerates all files inside a given folder and adds them as strings to a table. It makes use of [LÖVE's filesystem module](https://love2d.org/wiki/love.filesystem), which contains lots of useful functions for doing stuff like this.
+Давайте разберём этот код. Функция `recursiveEnumerate` рекурсивно перечисляет все файлы внутри заданной папки и добавляет их в таблицу как строки. Она использует [модуль LÖVE filesystem](https://love2d.org/wiki/love.filesystem), содержащий множество полезных функций для выполнения подобных операций.
 
-The first line inside the loop lists all files and folders in the given folder and returns them as a table of strings using [`love.filesystem.getDirectoryItems`](https:/love2d.org/wiki/love.filesystem.getDirectoryItems). Next, it iterates over all those and gets the full file path of each item by concatenating (concatenation of strings in Lua is done by using `..`) the `folder` string and the `item` string. 
+Первая строка внутри цикла создаёт список всех файлов и папок в заданной папке и возвращает их с помощью [`love.filesystem.getDirectoryItems`](https:/love2d.org/wiki/love.filesystem.getDirectoryItems). как таблицу строк. Далее она итеративно проходит по всем ним и получает полный путь к файлу конкатенацией (конкатенация строк в Lua выполняется с помощью `..`) строки `folder` и строки `item`. 
 
-Let's say that the folder string is `'objects'` and that inside the `objects` folder there is a single file named `GameObject.lua`. And so the `items` list will look like `items = {'GameObject.lua'}`. When that list is iterated over, the `local file = folder .. '/' .. item` line will parse to `local file = 'objects/GameObject.lua'`, which is the full path of the file in question.
+Допустим, что строка folder имеет значение `'objects'`, а внутри папки `objects` есть единственный файл с названием `GameObject.lua`. Тогда список `items` будет выглядеть как `items = {'GameObject.lua'}`. При итеративном проходе по списку строка `local file = folder .. '/' .. item` спарсится в `local file = 'objects/GameObject.lua'`, то есть в полный путь к соответствующему файлу.
 
-Then, this full path is used to check if it is a file or a directory using the [`love.filesystem.isFile`](https://love2d.org/wiki/love.filesystem.isFile) and [`love.filesystem.isDirectory`](https://love2d.org/wiki/love.filesystem.isDirectory) functions. If it is a file then simply add it to the `file_list` table that was passed in from the caller, otherwise call `recursiveEnumerate` again, but now using this path as the `folder` variable. When this finishes running, the `file_list` table will be full of strings corresponding to the paths of all files inside `folder`. In our case, the `object_files` variable will be a table full of strings corresponding to all the classes in the `objects` folder.
+Затем этот полный путь используется для проверки с помощью функций [`love.filesystem.isFile`](https://love2d.org/wiki/love.filesystem.isFile) и [`love.filesystem.isDirectory`](https://love2d.org/wiki/love.filesystem.isDirectory) того, является ли он файлом или каталогом. Если это файл, то мы просто добавляем его в таблицу `file_list` , переданную вызываемой функцией, в противном случае снова вызываем `recursiveEnumerate`, но на этот раз используем этот путь как переменную `folder`. Когда этот процесс завершится, таблица `file_list` будет заполнена строками, соответствующими путям ко всем файлам внутри `folder`. В нашем случае переменная `object_files` будет таблицей, заполненной строками, соответствующими всем классам в папке objects.
 
-There's still a step left, which is to take all those paths and require them:
+Остался ещё один шаг, заключающийся в добавлении всех этих путей в require:
 
 ```lua
 function love.load()
@@ -107,7 +107,7 @@ function requireFiles(files)
 end
 ```
 
-This is a lot more straightforward. It simply goes over the files and calls `require` on them. The only thing left to do is to remove the `.lua` from the end of the string, since the `require` function spits out an error if it's left in. The line that does that is `local file = file:sub(1, -5)` and it uses one of Lua's builtin [string functions](http://lua-users.org/wiki/StringLibraryTutorial). So after this is done all classes defined inside the `objects` folder can be automatically loaded. The `recursiveEnumerate` function will also be used later to automatically load other resources like images, sounds and shaders.
+Тут всё гораздо понятнее. Код просто проходит по файлам и вызывает для них `require`. Единственное, что осталось — удалить `.lua` из конца строки, потому что функция `require` выдаёт ошибку, если его оставить. Это можно сделать строкой `local file = file:sub(1, -5)`, которая использует одну из встроенных [строковых функций](http://lua-users.org/wiki/StringLibraryTutorial). Так что после выполнения этого будут автоматически загружаться все классы, определённые внутри папки `objects`. Позже также будет использована функция `recursiveEnumerate` для автоматической загрузки других ресурсов, таких как изображения, звуки и шейдеры.
 
 <br>
 
@@ -563,9 +563,9 @@ Which function from the library should be used in the underscored spot to verify
 
 ---
 
-If you liked these tutorials and want to support the writing of more like these in the future:
+Если вам понравится эта серия туториалов, то вы можете простимулировать меня к написанию чего-то подобного в будущем:
 
-* ### [BYTEPATH on Steam](http://store.steampowered.com/app/760330/BYTEPATH/)
-* ### [BYTEPATH-tutorial on itch.io](https://ssygen.itch.io/bytepath-tutorial)
+* ### [Игра BYTEPATH в Steam](http://store.steampowered.com/app/760330/BYTEPATH/)
+* ### [Туториал по BYTEPATH на itch.io](https://ssygen.itch.io/bytepath-tutorial)
 
-Buying the tutorial on itch.io gives you access to the game's full source code, answers to exercises from articles 1 through 9, the code separated by articles (what the code should look like at the end of each article) and a Steam key to the game.
+Купив туториал на itch.io, вы получите доступ к полному исходному коду игры, к ответам на упражения из частей 1-9, к коду, разбитому по частям туториала (код будет выглядеть так, как должен выглядеть в конце каждой части) и к ключу игры в Steam.
