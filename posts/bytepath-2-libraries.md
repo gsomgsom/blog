@@ -111,23 +111,23 @@ end
 
 <br>
 
-### OOP Exercises
+### Упражнения по ООП
 
-**6.** Create a `Circle` class that receives `x`, `y` and `radius` arguments in its constructor, has `x`, `y`, `radius` and `creation_time` attributes and has `update` and `draw` methods. The `x`, `y` and `radius` attributes should be initialized to the values passed in from the constructor and the `creation_time` attribute should be initialized to the relative time the instance was created (see [love.timer](https://love2d.org/wiki/love.timer)). The `update` method should receive a `dt` argument and the draw function should draw a white filled circle centered at `x, y` with `radius` radius (see [love.graphics](https://love2d.org/wiki/love.graphics)). An instance of this `Circle` class should be created at position 400, 300 with radius 50. It should also be updated and drawn to the screen. This is what the screen should look like:
-
-<p align="center">
-<img src="https://github.com/adonaac/blog/raw/master/images/bytepath-oop-1.png"/>
-</p>
-
-**7.** Create an `HyperCircle` class that inherits from the `Circle` class. An `HyperCircle` is just like a `Circle`, except it also has an outer ring drawn around it. It should receive additional arguments `line_width` and `outer_radius` in its constructor. An instance of this `HyperCircle` class should be created at position 400, 300 with radius 50, line width 10 and outer radius 120. This is what the screen should look like:
+**6.** Создайте класс `Circle`, получающий в своём конструкторе аргументы `x`, `y` и `radius`, имеющий атрибуты `x`, `y`, `radius` и `creation_time`, а также методы `update` и `draw`. Атрибуты `x`, `y` и `radius` должны инициализироваться со значениями, переданными из конструктора, а атрибут `creation_time` должен инициализироваться с относительным временем создания экземпляра (см. [love.timer](https://love2d.org/wiki/love.timer)). Метод `update` должен получать аргумент `dt`, а функция draw должна отрисовывать закрашенный цикл с центром в `x, y` с радиусом `radius` (см. [love.graphics](https://love2d.org/wiki/love.graphics)). Экземпляр этого класса `Circle` должен быть создан в позиции 400, 300 с радиусом 50. Он также должен обновляться и отрисовываться на экране. Вот, как должен выглядеть экран:
 
 <p align="center">
-<img src="https://github.com/adonaac/blog/raw/master/images/bytepath-oop-2.png"/>
+<img src="https://github.com//gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-oop-1.png"/>
 </p>
 
-**8.** What is the purpose of the `:` operator in Lua? How is it different from `.` and when should either be used?
+**7.** Создайте класс `HyperCircle`, который наследует от класса `Circle`. `HyperCircle` похож на `Circle`, только вокруг него отрисовывается внешний круг. Он должен получать в конструкторе дополнительные аргументы `line_width` и `outer_radius`. Экземпляр этого класса `HyperCircle` нужно создать в позиции 400, 300 с радиусом 50, шириной линии 10 и внешним радиусом 120. Экран должен выглядеть вот так:
 
-**9.** Suppose we have the following code:
+<p align="center">
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-oop-2.png"/>
+</p>
+
+**8.** Для чего в Lua служит оператор `:`? Чем он отличается от `.` и когда нужно использовать каждый из них?
+
+**9.** Допустим, у нас есть следующий код:
 
 ```lua
 function createCounterTable()
@@ -143,23 +143,23 @@ function love.load()
 end
 ```
 
-What is the value of `counter_table.value`? Why does the `increment` function receive an argument named `self`? Could this argument be named something else? And what is the variable that `self` represents in this example?
+Каким будет значение `counter_table.value`? Почему функция `increment` получает аргумент с названием `self`? Может ли этот аргумент иметь какое-то другое название? И что это за переменная, которая в этом примере представлена `self`?
 
-**10.** Create a function that returns a table that contains the attributes `a`, `b`, `c` and `sum`. `a`, `b` and `c` should be initiated to 1, 2 and 3 respectively, and `sum` should be a function that adds `a`, `b` and `c` together. The final result of the sum should be stored in the `c` attribute of the table (meaning, after you do everything, the table should have an attribute `c` with the value 6 in it).
+**10.** Создайте функцию, возвращающую таблицу, которая содержит атрибуты `a`, `b`, `c` и `sum`. `a`, `b` и `c` должны инициализироваться со значениями 1, 2 и 3, а `sum` должна быть функцией, складывающей `a`, `b` и `c`. Значение суммы должно храниться в атрибуте `c` таблицы (то есть после выполнения всех операций таблица должна иметь атрибут `c` со значением 6).
 
-**11.** If a class has a method with the name of `someMethod` can there be an attribute of the same name? If not, why not?
+**11.** Если класс имеет метод с названием `someMethod`, может ли у него быть атрибут с тем же названием? Если нет, то почему?
 
-**12.** What is the global table in Lua?
+**12.** Что такое «глобальная таблица» в Lua?
 
-**13.** Based on the way we made classes be automatically loaded, whenever one class inherits from another we have code that looks like this:
+**13.** На основании того, как мы организовали автоматическую загрузку классов, если один класс наследует от другого, то код будет выглядеть следующим образом:
 
 ```lua
 SomeClass = ParentClass:extend()
 ```
 
-Is there any guarantee that when this line is being processed the `ParentClass` variable is already defined? Or, to put it another way, is there any guarantee that `ParentClass` is required before `SomeClass`? If yes, what is that guarantee? If not, what could be done to fix this problem?
+Существует ли гарантия того, что когда эта строка будет обрабатываться, переменная `ParentClass` уже будет определена? Или, иными словами, есть ли гарантия того, что required `ParentClass` будет раньше, чем `SomeClass`? Если да, то чем это гарантируется? Если нет, то как можно устранить эту проблему?
 
-**14.** Suppose that all class files do not define the class globally but do so locally, like:
+**14.** Предположим, что все файлы классов определяют класс не глобально, а локально, примерно так:
 
 ```lua
 local ClassName = Object:extend()
@@ -167,13 +167,13 @@ local ClassName = Object:extend()
 return ClassName
 ```
 
-How would the `requireFiles` function need to be changed so that we could still automatically load all classes?
+Как нужно изменить функцию `requireFiles`, чтобы она всё равно могла автоматически загружать все классы?
 
 <br>
 
-## Input
+## Ввод
 
-Now for how to handle input. The default way to do it in LÖVE is through a few callbacks. When defined, these callback functions will be called whenever the relevant event happens and then you can hook the game in there and do whatever you want with it:
+Теперь перейдём к обработке ввода. По умолчанию в LÖVE для этого используется несколько обработчиков событий. Если эти функции обработки событий определены, то они могут вызываться при выполнении соответствующего события, после чего можно перехватить выполнение игры и совершить необходимые действия:
 
 ```lua
 function love.load()
@@ -205,9 +205,9 @@ function love.mousereleased(x, y, button)
 end
 ```
 
-So in this case, whenever you press a key or click anywhere on the screen the information will be printed out to the console. One of the big problems I've always had with this way of doing things is that it forces you to structure everything you do that needs to receive input around these calls.
+В этом случае, когда вы нажимаете клавишу или щёлкаете мышью в любом месте экрана, в консоль будет выводиться информация. Одна из самых больших проблем с таким способом обработки в том, что она вынуждает структурировать всё необходимое вам для получения ввода в обход этих вызовов.
 
-So, let's say you have a `game` object which has inside it a `level` object which has inside a `player` object. To get the player object receive keyboard input, all those 3 objects need to have the two keyboard related callbacks defined, because at the top level you only want to call `game:keypressed` inside `love.keypressed`, since you don't want the lower levels to know about the level or the player. So I created [a library](https://github.com/adonaac/boipushy) to deal with this problem. You can download it and install it like the other library that was covered. Here's a few examples of how it works:
+Допустим, у нас есть объект `game`, внутри которого есть объект `level`, внутри которого есть объект `player`. Для того, чтобы объект player получил клавиатурный ввод, у всех этих трёх объектов должно быть определено два обработчика вызова, связанных с клавиатурой, потому что на верхнем уровне мы хотим вызывать только `game:keypressed` внутри `love.keypressed`, поскольку мы не хотим, чтобы более низкие уровни знали об уровне или игроке. Поэтому я создал [библиотеку](https://github.com/adonaac/boipushy) для решения этой проблемы. Можете скачать и установить её как любую другую рассмотренную нами библиотеку. Вот несколько примеров того, как она работает:
 
 ```lua
 function love.load()
@@ -222,9 +222,9 @@ function love.update(dt)
 end
 ```
 
-So what the library does is that instead of relying on callback functions for input, it simply asks if a certain key has been pressed on this frame and receives a response of true or false. In the example above on the frame that you press the `mouse1` button, `pressed` will be printed to the screen, and on the frame that you release it, `released` will be printed. On all the other frames where the press didn't happen the `input:pressed` or `input:released` calls would have returned false and so whatever is inside of the conditional wouldn't be run. The same applies to the `input:down` function, except it returns true on every frame that the button is held down and false otherwise.
+Вот, что делает библиотека: вместо того, чтобы полагаться на функции обработки событий ввода, она просто запрашивает, была ли в этом кадре нажата определённая клавиша и получает ответ в виде true или false. В приведённом выше примере в кадре, где нажали кнопку `mouse1`, на экране будет печататься `pressed`, а в кадре отпускания кнопки будет печататься `released`. Во всех других кадрах, когда нажатие не выполняется, вызовы `input:pressed` и `input:released` будут возвращать false и всё внутри условной конструкции выполняться не будет. То же самое относится и к функции `input:down`, только она возвращает true в каждом кадре, когда кнопка удерживается, и false в противном случае.
 
-Often times you want behavior that repeats at a certain interval when a key is held down, instead of happening every frame. For that purpose you can use the `down` function like this:
+Часто нам требуется поведение, повторяющееся при удерживании клавиши с определённым интервалом, а не в каждом кадре. Для этой цели можно использовать функцию `down`:
 
 ```lua
 function love.update(dt)
@@ -232,13 +232,13 @@ function love.update(dt)
 end
 ```
 
-So in this example, once the key bound to the `test` action is held down, every 0.5 seconds `test event` will be printed to the console.
+В этом примере, если удерживается клавиша, привязанная к действию `test`, то каждые 0,5 секунд в консоли будет печататься `test event`.
 
 <br>
 
-### Input Exercises
+### Упражнения по вводу
 
-**15.** Suppose we have the following code:
+**15.** Допустим, у нас есть следующий код:
 
 ```lua
 function love.load()
@@ -249,15 +249,15 @@ end
 
 Will anything happen when `mouse1` is pressed? What about when it is released? And held down?
 
-**16.** Bind the keypad `+` key to an action named `add`, then increment the value of a variable named `sum` (which starts at 0) by 1 every `0.25` seconds when the `add` action key is held down. Print the value of `sum` to the console every time it is incremented.
+**16.** Привяжите клавишу алфавитно-цифрового блока `+` к действию `add`; затем при удерживании клавиши действия `add `увеличивайте значение переменной `sum` (изначально равной 0) на 1 через каждые `0,25` секунды. Выводите значение `sum` в консоль при каждом инкременте.
 
-**17.** Can multiple keys be bound to the same action? If not, why not? And can multiple actions be bound to the same key? If not, why not?
+**17.** Можно ли к одному действию привязать несколько клавиш? Если нет, то почему? И можно ли привязать к одной клавише несколько действий? Если нет, то почему?
 
-**18.** If you have a gamepad, bind its DPAD buttons(fup, fdown...) to actions `up`, `left`, `right` and `down` and then print the name of the action to the console once each button is pressed.
+**18.** Если у вас есть контроллер, то привяжите его кнопки направлений DPAD (fup, fdown...) к действиям `up`, `left`, `right` и `down`, а затем выводите название действия в консоль при нажатии каждой из кнопок.
 
-**19.** If you have a gamepad, bind one of its trigger buttons (l2, r2) to an action named `trigger`. Trigger buttons return a value from 0 to 1 instead of a boolean saying if its pressed or not. How would you get this value?
+**19.** Если у вас есть контроллер, то привяжите одну из его кнопок-триггеров (l2, r2) к действию `trigger`. Кнопки-триггеры возвращают вместо булевого значение от 0 до 1, сообщающее о нажатии. Как вы будете получать это значение?
 
-**20.** Repeat the same as the previous exercise but for the left and right stick's horizontal and vertical position.
+**20.** Повторите предыдущее упражнение, но для горизонтального и вертикального положения левого и правого стиков.
 
 <br>
 
@@ -370,7 +370,7 @@ end
 The `tween` function is the hardest one to get used to because there are so many arguments, but it takes in a number of seconds, the subject table, the target table and a tween mode. Then it performs the tween on the subject table towards the values in the target table. So in the example above, the table `circle` has a key `radius` in it with the initial value of 24. Over the span of 6 seconds this value will changed to 96 using the `in-out-cubic` tween mode. (here's a [useful list of all tweening modes](http://easings.net/)) It sounds complicated but it looks like this:
 
 <p align="center">
-  <img src="https://github.com/adonaac/blog/raw/master/images/bytepath-timer-1.gif"/>
+  <img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-timer-1.gif"/>
 </p>
 
 The `tween` function can also take an additional argument after the tween mode which is a function to be called when the tween ends. This can be used for a number of purposes, but taking the previous example, we could use it to make the circle shrink back to normal after it finishes expanding:
@@ -390,7 +390,7 @@ end
 And that looks like this:
 
 <p align="center">
-  <img src="https://github.com/adonaac/blog/raw/master/images/bytepath-timer-2.gif"/>
+  <img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-timer-2.gif"/>
 </p>
 
 These 3 functions - `after`, `every` and `tween` - are by far in the group of most useful functions in my code base. They are very versatile and they can achieve a lot of stuff. So make you sure you have some intuitive understanding of what they're doing!
@@ -458,13 +458,13 @@ end
 Using only the `tween` function, tween the `w` attribute of the first rectangle over 1 second using the `in-out-cubic` tween mode. After that is done, tween the `h` attribute of the second rectangle over 1 second using the `in-out-cubic` tween mode. After that is done, tween both rectangles back to their original attributes over 2 seconds using the `in-out-cubic` tween mode. It should look like this:
 
 <p align="center">
-<img src="https://github.com/adonaac/blog/raw/master/images/bytepath-timer-3.gif"/>
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-timer-3.gif"/>
 </p>
 
 **23.** For this exercise you should create an HP bar. Whenever the user presses the `d` key the HP bar should simulate damage taken. It should look like this:
 
 <p align="center">
-<img src="https://github.com/adonaac/blog/raw/master/images/bytepath-timer-4.gif"/>
+<img src="https://github.com/gsomgsom/lua_gamedev_blog/raw/master/images/bytepath-timer-4.gif"/>
 </p>
 
 As you can see there are two layers to this HP bar, and whenever damage is taken the top layer moves faster while the background one lags behind for a while.
